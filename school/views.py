@@ -13,7 +13,7 @@ def index(request):
             #comparison closest_task to next task
             task_closest = task.deadline - timezone.now() < closest_task 
 
-            if task.next_task and task_closest:
+            if task.returned == "No" and task_closest:
                 closest_task = task.deadline - timezone.now()
                 closest = task
         

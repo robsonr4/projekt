@@ -25,7 +25,7 @@
 }
 
 .box {
-    height: 90px;
+    height: 50px;
     overflow: hidden;
     position: relative;
   }
@@ -61,8 +61,8 @@ ul {
     float: right;
     margin: 0;
     padding: 0;
-    -webkit-animation: scrollUp 8s linear infinite normal;
-            animation: scrollUp 8s linear infinite normal;
+    -webkit-animation: scrollUp 7s ease-in-out infinite normal;
+            animation: scrollUp 7s ease-in-out infinite normal;
   }
 ul li {
     opacity: 1;
@@ -73,8 +73,8 @@ ul li {
   
   @-webkit-keyframes scrollUp {
     from {
-      -webkit-transform: translateY(10%);
-              transform: translateY(10%);
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%);
     }
     to {
       -webkit-transform: translateY(-105%);
@@ -95,8 +95,4 @@ ul li {
 
 body {
     margin: 24px;
-}
-
-#chart {
-    word-wrap: break-word,
 }
