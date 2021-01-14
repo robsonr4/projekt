@@ -11,7 +11,7 @@
         }
 
     function mOut(obj) {
-        obj.innerHTML = `<b>Next tasks:</b><br /><div class="box"><ul>{% for task in Task %}{% if task.returned == "No" %}<li>{{task}}</li>{% endif %}{% endfor %}</ul></div>`
+        obj.innerHTML = `<b>Next tasks: ({{TBD}})</b><br /><div class="box"><ul>{% for task in Task %}{% if task.returned == "No" %}<li>{{task}};</li>{% endif %}{% endfor %}</ul></div>`
         }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -20,7 +20,7 @@
         <div id="Bar">
             <div id="BarText">Manager v.0.1</div>
             <div id="NextTask" onmouseover="mOver(this)" onmouseout="mOut(this)">
-                <b>Next tasks:</b><br /><div class="box"><ul>{% for task in Task %}{% if task.next_task %}<li>{{task}}</li>{% endif %}{% endfor %}</ul></div>
+                <b>Next tasks: ({{TBD}})</b><br /><div class="box"><ul>{% for task in Task %}{% if task.next_task %}<li>{{task}};</li>{% endif %}{% endfor %}</ul></div>
             </div>
         </div>
         <div>

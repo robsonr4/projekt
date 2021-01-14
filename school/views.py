@@ -46,9 +46,18 @@ def index(request):
         
         return lista
 
+    def tasks_be_done(Task):
+        counter = 0
+        for task in Task:
+            if task.returned == "No":
+                counter += 1
+        
+        return counter
+
     return render(request, "school/index.html", {
         'next_tasks': next_tazk(Task.objects.all()),
         'Task': Task.objects.all(),
         'Subject': Subject_ingredient.objects.all(),
-        'Punkty': punkty(Task.objects.all(), Subject_ingredient.objects.all())
+        'Punkty': punkty(Task.objects.all(), Subject_ingredient.objects.all()),
+        'TBD': tasks_be_done(Task.objects.all())
     })
