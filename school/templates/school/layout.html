@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Swps Manager</title>
+        <link rel="stylesheet" href='{% static "school/style.css" %}?{% now "U" %}'>
+    <script>
+    function mOver(obj) {
+        obj.innerHTML = '<b>Next task:</b><br />{{next_tasks}}'
+        }
+
+    function mOut(obj) {
+        obj.innerHTML = `<b>Next tasks:</b><br /><div class="box"><ul>{% for task in Task %}<li>{% if task.next_task %}{{task}}{% endif %}</li>{% endfor %}</ul></div>`
+        }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    </head>
+    <body>
+        <div id="Bar">
+            <div id="BarText">Manager v.0.1</div>
+            <div id="NextTask" onmouseover="mOver(this)" onmouseout="mOut(this)">
+                <b>Next tasks:</b><br /><div class="box"><ul>{% for task in Task %}<li>{% if task.next_task %}{{task}}{% endif %}</li>{% endfor %}</ul></div>
+            </div>
+        </div>
+        <div>
+            {% block body %}
+            {% endblock %}
+        </div> 
+    </body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "school/layout.html" %}
+
+{% block body %}
+<div id="chart">
+</div>
+<script type="text/javascript">
+var options = {
+    series: {{Punkty}},
+    chart: {
+    height: 650,
+    type: 'radialBar',
+  },
+  plotOptions: {
+    radialBar: {
+      dataLabels: {
+        name: {
+          fontSize: '22px',
+        },
+        value: {
+          fontSize: '16px',
+        },
+        total: {
+          show: true,
+          label: 'Semestr I',
+          labelWrap: true,
+          formatter: function (w) {
+            // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+            return 100
+          }
+        }
+      }
+    }
+  },
+  labels: [{% for subject in Subject %}'{{subject}}({{subject.max_points}})',{% endfor %}],
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+</script>
+{% endblock %}
