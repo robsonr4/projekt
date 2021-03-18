@@ -13,6 +13,9 @@ class Subject(models.Model):
         (5, 5),
         (6, 6),
     )
+    
+    
+    
 
     subject = models.CharField(max_length=128)
     max_points = models.IntegerField(default=100)
